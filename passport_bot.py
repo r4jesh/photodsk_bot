@@ -5,7 +5,6 @@ from PIL import Image
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.constants import ChatAction
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, CallbackQueryHandler, filters, ContextTypes
-import os
 
 BOT_TOKEN = '7767749828:AAHB-D8atqEoGWz5nzUx387AGz9Jd2oL0UQ'
 CUTOUT_PRO_API_KEY = '5d8477b9d3f04a518de5bd5c8cb5ad0e'
@@ -47,9 +46,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("📋 Print Guidelines", callback_data="print_help")],
         [InlineKeyboardButton("🌐 Visit CutoutPro", url="https://www.cutout.pro")],
     ]
-    await update.message.reply_text(
-        "👋 Welcome to *Passport Photo Bot!*
+await update.message.reply_text(
+    """👋 Welcome to *Passport Photo Bot!*
 
+📸 Just send me a clear photo with your face.
+I'll remove the background and return a 4x6 inch sheet with 12 passport-size photos (30×35 mm).""",
+    parse_mode="Markdown",
+    reply_markup=InlineKeyboardMarkup(keyboard)
+)
 "
         "📸 Just send me a clear photo with your face.
 "
