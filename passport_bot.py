@@ -7,15 +7,15 @@ from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, fil
 
 import os
 
-BOT_TOKEN = os.getenv('BOT_TOKEN')
-CUTOUT_PRO_API_KEY = os.getenv('CUTOUT_PRO_API_KEY')
+BOT_TOKEN = os.getenv('7767749828:AAHB-D8atqEoGWz5nzUx387AGz9Jd2oL0UQ')
+CUTOUT_PRO_API_KEY = os.getenv('5d8477b9d3f04a518de5bd5c8cb5ad0')
 
 logging.basicConfig(level=logging.INFO)
 
 def remove_bg_cutoutpro(image_bytes):
     response = requests.post(
         'https://www.cutout.pro/api/v1/matting?mattingType=1',
-        headers={'APIKEY': CUTOUT_PRO_API_KEY},
+        headers={'APIKEY': 5d8477b9d3f04a518de5bd5c8cb5ad0},
         files={'file': ('photo.jpg', image_bytes, 'image/jpeg')}
     )
     if response.status_code == 200:
